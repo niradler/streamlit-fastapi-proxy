@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Demo App",
+    "path": "/Users/nir/Documents/projects/os/streamlit-fastapi-proxy/apps/demo.py",
+    "slug": "demo",
+    "desired_port": 8503,
+    "run_by_default": false
+  },
+  {
+    "name": "Test App",
+    "path": "/Users/nir/Documents/projects/os/streamlit-fastapi-proxy/apps/test_app.py",
+    "slug": "test",
+    "desired_port": 8504,
+    "run_by_default": false
+  }
+]

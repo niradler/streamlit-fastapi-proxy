@@ -1,0 +1,27 @@
+[project]
+name = "streamlit-fastapi-proxy"
+version = "0.1.0"
+description = "A FastAPI proxy server for managing multiple Streamlit applications"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.116.1",
+    "uvicorn[standard]>=0.35.0",
+    "streamlit>=1.47.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.7",
+    "websockets>=15.0.1",
+    "fastapi-proxy-lib>=0.3.0",
+    "httpx-ws>=0.7.2",
+    "psutil>=7.0.0",
+]
+
+[project.scripts]
+streamlit-proxy = "streamlit_proxy.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["streamlit_proxy"]
