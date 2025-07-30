@@ -69,7 +69,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    app.include_router(manager_router, prefix="/apps", tags=["App Management"])
+    app.include_router(manager_router, prefix="/_apps", tags=["App Management"])
     app.include_router(proxy_router, prefix="/apps", tags=["Proxy"])
 
     # Add redirect for apps without trailing slash

@@ -52,7 +52,7 @@ pip install -e .
 
 2. **Register a Streamlit app:**
    ```bash
-   curl -X POST "http://localhost:8000/apps/register" \
+   curl -X POST "http://localhost:8000/_apps/register" \
         -H "Content-Type: application/json" \
         -d '{
           "name": "Test App",
@@ -63,7 +63,7 @@ pip install -e .
 
 3. **Start the app:**
    ```bash
-   curl -X POST "http://localhost:8000/apps/test-app/start"
+   curl -X POST "http://localhost:8000/_apps/test-app/start"
    ```
 
 4. **Access your app:**
@@ -73,11 +73,11 @@ pip install -e .
 
 ### App Management
 
-- **GET** `/apps/` - List all registered apps with status
-- **POST** `/apps/register` - Register a new Streamlit app
-- **POST** `/apps/{slug}/start` - Start a specific app
-- **POST** `/apps/{slug}/stop` - Stop a specific app  
-- **GET** `/apps/{slug}/status` - Get detailed status of an app
+- **GET** `/_apps/` - List all registered apps with status
+- **POST** `/_apps/register` - Register a new Streamlit app
+- **POST** `/_apps/{slug}/start` - Start a specific app
+- **POST** `/_apps/{slug}/stop` - Stop a specific app  
+- **GET** `/_apps/{slug}/status` - Get detailed status of an app
 
 ### Proxy Endpoints
 
