@@ -1,6 +1,7 @@
-import streamlit as st
-import time
 import random
+import time
+
+import streamlit as st
 
 st.title("🚀 Test Streamlit App")
 

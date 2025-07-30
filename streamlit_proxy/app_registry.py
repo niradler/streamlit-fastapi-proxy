@@ -1,7 +1,9 @@
 import json
+from typing import List, Optional
+
 from .config import APP_REGISTRY_PATH
 from .models import AppConfig
-from typing import List, Optional
+
 
 class AppRegistry:
     def __init__(self):

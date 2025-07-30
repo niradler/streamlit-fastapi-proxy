@@ -2,21 +2,25 @@
 Main entry point for the Streamlit FastAPI Proxy application.
 """
 
+import asyncio
+import atexit
+import logging
 import signal
 import sys
-import atexit
-import asyncio
-import logging
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
 from starlette.middleware.cors import CORSMiddleware
-from .proxy import router as proxy_router, cleanup_websocket_proxy
+
 from .app_manager import manager_router
+from .proxy import cleanup_websocket_proxy
+from .proxy import router as proxy_router
 from .services import app_service
 
 # Set up logging
 logger = logging.getLogger(__name__)
+
 
 async def cleanup_running_apps():
     """Clean up all running Streamlit processes."""
@@ -28,6 +32,7 @@ async def cleanup_running_apps():
         print("✅ Cleanup completed!")
     except Exception as e:
         logger.error(f"Error during cleanup: {e}")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -45,14 +50,15 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Error during shutdown cleanup: {e}")
 
+
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
-    
+
     app = FastAPI(
         title="Streamlit FastAPI Proxy",
         description="A proxy server for managing multiple Streamlit applications",
         version="0.1.0",
-        lifespan=lifespan
+        lifespan=lifespan,
     )
 
     app.add_middleware(
@@ -73,13 +79,16 @@ def create_app() -> FastAPI:
 
     return app
 
+
 def main():
     """Main entry point for running the application."""
     app = create_app()
     return app
 
+
 if __name__ == "__main__":
     import uvicorn
+
     app = main()
     uvicorn.run(app, host="0.0.0.0", port=8000)
 

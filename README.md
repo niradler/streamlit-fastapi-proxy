@@ -12,11 +12,21 @@ A FastAPI-based proxy server for managing and serving multiple Streamlit applica
 - 🔄 **Auto Port Management**: Automatic port allocation and management
 - 📝 **Access Tracking**: Track last access times for apps
 
+![Demo](st-proxy.gif)
+
 ## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install streamlit-fastapi-proxy
+```
+
+### From Source
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/niradler/streamlit-fastapi-proxy.git
 cd streamlit-fastapi-proxy
 
 # Install dependencies with uv
@@ -28,11 +38,16 @@ pip install -e .
 
 ## Quick Start
 
-1. **Start the proxy server:**
+1. **Install the package:**
    ```bash
-   uv run python main.py
-   # Or use the CLI command
-   uv run streamlit-proxy
+   pip install streamlit-fastapi-proxy
+   ```
+
+2. **Start the proxy server:**
+   ```bash
+   streamlit-proxy
+   # Or run directly
+   python -m streamlit_proxy.main
    ```
 
 2. **Register a Streamlit app:**
@@ -142,4 +157,4 @@ uv run isort .
 
 ## License
 
-[Add your license here]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
